@@ -93,7 +93,7 @@ environments {
     }
     production {
         grails.logging.jul.usebridge = false
-        grails.serverURL = "http://www.it-hausverstand.at"
+        grails.serverURL = "http://www.it-hausverstand.at/crosswords"
     }
 }
 
