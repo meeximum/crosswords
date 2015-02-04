@@ -28,7 +28,9 @@ CREATE TABLE `term` (
   PRIMARY KEY (`id`),
   KEY `FK_pqses8vpcx79r4kgnx9s6mohh` (`token_id`),
   CONSTRAINT `FK_pqses8vpcx79r4kgnx9s6mohh` FOREIGN KEY (`token_id`) REFERENCES `token` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31972 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `term` */
 
 /*Table structure for table `token` */
 
@@ -41,7 +43,9 @@ CREATE TABLE `token` (
   `token` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UK_pddrhgwxnms2aceeku9s2ewy5` (`token`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `token` */
 
 /*Table structure for table `user` */
 
@@ -55,6 +59,10 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `UK_i3e9qhkr9wead1gstwc34yimg` (`user`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+/*Data for the table `user` */
+
+insert  into `user`(`id`,`version`,`password`,`user`) values (1,0,'1234','reich');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
