@@ -12,23 +12,21 @@
             ${flash.message}
         </div>
     </g:if>
-    <p>
-        Willkommen bei Crosswords
-    </p>
+    <p><g:message code="logon.title" /></p>
     <g:form action="handleLogin" method="post">
         <table>
             <tr>
-                <td><label for="userName">Benutzer:</label></td>
+                <td><label for="userName"><g:message code="logon.user" />:</label></td>
                 <td><g:textField name="userName" value="${user?.userName}"/></td>
             </tr>
             <tr>
-                <td><label for="userPass">Kennwort:</label></td>
+                <td><label for="userPass"><g:message code="logon.pass" />:</label></td>
                 <td><g:passwordField name="userPass"/></td>
             </tr>
         </table>
         <br/>
         <span class="button">
-            <g:actionSubmit value="Login" action="handleLogin"/>
+            <g:actionSubmit value="${message(code: 'logon.login')}" action="handleLogin"/>
         </span>
     </g:form>
 </div>

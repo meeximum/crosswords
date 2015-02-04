@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="layout" content="main"/>
     <title>Crosswords</title>
     <style type="text/css" media="screen">
@@ -85,10 +86,9 @@
 <a href="#page-body" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 
 <div id="status" role="complementary">
-    <h1>MenÜ</h1>
     <ul>
-        <li class="controller"><g:link controller="term" action="index">Term</g:link></li>
-        <li class="controller"><g:link controller="token" action="index">Token</g:link></li>
+        <li class="controller"><g:link controller="term" action="index"><g:message code="term.label" /></g:link></li>
+        <li class="controller"><g:link controller="token" action="index"><g:message code="token.label" /></g:link></li>
     </ul>
 </div>
 
@@ -99,8 +99,8 @@
             <div class="message" role="status">${flash.message}</div>
         </g:if>
         <g:form action="index" method="GET">
-            <g:textField name="searchTextField" value="${params.searchTextField}"/>
-        %{--<g:submitToRemote update="searchresults" url="[controller:'index', action:'search']" value="Suche"></g:submitToRemote>--}%
+            <g:textField  name="searchTextField" value="${params.searchTextField}"/>
+            %{--<g:submitToRemote update="searchresults" url="[controller:'index', action:'search']" value="Suche"></g:submitToRemote>--}%
             <g:submitButton name="Suche" />
         </g:form>
         <div id="searchresults">
