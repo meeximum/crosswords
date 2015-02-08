@@ -1,6 +1,6 @@
 package at.meeximum.crosswords
 
-
+import pl.touk.excel.export.WebXlsxExporter
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
@@ -106,6 +106,18 @@ class TokenController {
                 redirect action: "index", method: "GET"
             }
             '*'{ render status: NOT_FOUND }
+        }
+    }
+
+    def export() {
+        def tokens  = Token.findAll()
+        def headers = ["id",message(code: 'token.token.label'), message(code: 'token.description.label')]
+        def withProperties = ['id', 'token', 'description']
+        new WebXlsxExporter().with {
+            setResponseHeaders(response)
+            fillHeader(headers)
+            add(tokens, withProperties)
+            save(response.outputStream)
         }
     }
 }

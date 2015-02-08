@@ -1,5 +1,6 @@
 package at.meeximum.crosswords
 
+import pl.touk.excel.export.WebXlsxExporter
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
@@ -105,6 +106,18 @@ class TermController {
                 redirect action: "index", method: "GET"
             }
             '*' { render status: NOT_FOUND }
+        }
+    }
+
+    def export() {
+        def terms  = Term.findAll()
+        def headers = ["id",message(code: 'term.term.label'), message(code: 'term.token.label'), message(code: 'term.description.label')]
+        def withProperties = ['id', 'term', 'token', 'description']
+        new WebXlsxExporter().with {
+            setResponseHeaders(response)
+            fillHeader(headers)
+            add(terms, withProperties)
+            save(response.outputStream)
         }
     }
 }

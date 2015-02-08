@@ -6,6 +6,7 @@
         <webroots>
           <root url="file://$MODULE_DIR$/target/work/plugins/jquery-1.11.1/web-app" relative="/" />
           <root url="file://$MODULE_DIR$/target/work/plugins/database-migration-1.4.0/grails-app/views" relative="/" />
+          <root url="file://$MODULE_DIR$/target/work/plugins/excel-export-0.2.1/web-app" relative="/" />
         </webroots>
         <sourceRoots />
       </configuration>
@@ -34,6 +35,10 @@
     <content url="file://$MODULE_DIR$/target/work/plugins/database-migration-1.4.0">
       <sourceFolder url="file://$MODULE_DIR$/target/work/plugins/database-migration-1.4.0/src/groovy" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/target/work/plugins/database-migration-1.4.0/grails-app/controllers" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/target/work/plugins/excel-export-0.2.1">
+      <sourceFolder url="file://$MODULE_DIR$/target/work/plugins/excel-export-0.2.1/src/groovy" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/target/work/plugins/excel-export-0.2.1/grails-app/i18n" isTestSource="false" />
     </content>
     <content url="file://$MODULE_DIR$/target/work/plugins/hibernate4-4.3.6.1">
       <sourceFolder url="file://$MODULE_DIR$/target/work/plugins/hibernate4-4.3.6.1/src/java" isTestSource="false" />
@@ -90,6 +95,12 @@
           <root url="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-jasper/7.0.55/tomcat-embed-jasper-7.0.55.jar!/" />
           <root url="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/tomcat-catalina-ant/7.0.55/tomcat-catalina-ant-7.0.55.jar!/" />
           <root url="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.29/mysql-connector-java-5.1.29.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/apache/poi/poi-ooxml/3.7/poi-ooxml-3.7.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/apache/geronimo/specs/geronimo-stax-api_1.0_spec/1.0/geronimo-stax-api_1.0_spec-1.0.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/stax/stax-api/1.0.1/stax-api-1.0.1.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/apache/xmlbeans/xmlbeans/2.3.0/xmlbeans-2.3.0.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/apache/poi/poi-ooxml-schemas/3.7/poi-ooxml-schemas-3.7.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/org/apache/poi/poi/3.7/poi-3.7.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
