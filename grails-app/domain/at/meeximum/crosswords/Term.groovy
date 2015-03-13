@@ -3,6 +3,7 @@ package at.meeximum.crosswords
 class Term {
 
     String term
+    Integer length
     String description
     Token token
 
@@ -12,6 +13,7 @@ class Term {
         term(nullable: false, blank: false, unique: false)
         description(maxSize: 1000, nullable:true)
         token(nullable:true)
+        length(nullable: true)
     }
 
     String toString() {

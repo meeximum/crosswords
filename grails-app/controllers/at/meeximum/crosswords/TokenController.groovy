@@ -42,6 +42,8 @@ class TokenController {
             return
         }
 
+        tokenInstance.token = tokenInstance.token.toUpperCase()
+
         tokenInstance.save flush:true
 
         request.withFormat {
@@ -68,6 +70,8 @@ class TokenController {
             respond tokenInstance.errors, view:'edit'
             return
         }
+
+        tokenInstance.token = tokenInstance.token.toUpperCase()
 
         tokenInstance.save flush:true
 

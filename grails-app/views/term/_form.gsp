@@ -28,4 +28,3 @@
 	<g:select id="token" name="token.id" from="${at.meeximum.crosswords.Token.list()}" optionKey="id" value="${termInstance?.token?.id}" class="many-to-one" noSelection="['null': '']"/>
 
 </div>
-

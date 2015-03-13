@@ -41,7 +41,7 @@
     }
 
     #page-body {
-        margin: 2em 1em 1.25em 18em;
+        margin: 0 1em 1.25em 18em;
     }
 
     h2 {
@@ -65,6 +65,13 @@
         margin: 0.25em 0;
     }
 
+    .fieldcontain label,
+    .fieldcontain .property-label {
+        color: #666666;
+        text-align: left;
+        width: 10%;
+    }
+
     @media screen and (max-width: 480px) {
         #status {
             display: none;
@@ -86,28 +93,57 @@
 
 <div id="status" role="complementary">
     <ul>
-        <li class="controller"><g:link controller="term" action="index"><g:message code="term.label" /></g:link></li>
-        <li class="controller"><g:link controller="token" action="index"><g:message code="token.label" /></g:link></li>
+        <li class="controller"><g:link controller="term" action="index"><g:message code="term.label"/></g:link></li>
+        <li class="controller"><g:link controller="token" action="index"><g:message code="token.label"/></g:link></li>
     </ul>
 </div>
 
 <div id="page-body" role="main">
-    <div id="list-term" class="content scaffold-list" role="main">
-        <h1>Suche</h1>
+    %{--<div id="list-term" class="content scaffold-list" role="main">--}%
         <g:if test="${flash.message}">
             <div class="message" role="status">${flash.message}</div>
         </g:if>
         <g:form action="index" method="GET">
-            <g:textField  name="searchTextField" value="${params.searchTextField}"/>
-            %{--<g:submitToRemote update="searchresults" url="[controller:'index', action:'search']" value="Suche"></g:submitToRemote>--}%
-            <g:submitButton name="Suche" />
+            <fieldset class="form">
+                <div class="fieldcontain">
+                    <label for="searchTextField">
+                        <g:message code="term.term.label" default="Term"/>
+
+                    </label>
+                    <g:textField name="searchTextField" value="${params.searchTextField}"/>
+                </div>
+
+                <div class="fieldcontain">
+                    <label for="searchToken">
+                        <g:message code="token.token.label" default="Token"/>
+
+                    </label>
+                    <g:select id="token" name="searchToken" from="${at.meeximum.crosswords.Token.list()}" optionKey="id"
+                              value="${params.searchToken}" class="many-to-one" noSelection="['': '']"/>
+                </div>
+
+                <div class="fieldcontain">
+                    <label for="lengthField">
+                        <g:message code="term.length.label" default="Length"/>
+
+                    </label>
+                    <g:field name="lengthField" type="number" value="${params.lengthField}" />
+                    %{--<g:textField name="" value="${params.lengthField}" pattern="[1-9][0-9]*" size="1" />--}%
+                </div>
+            </fieldset>
+            <fieldset class="buttons">
+                <g:submitButton name="${message(code: 'search', default: 'Search')}"/>
+            </fieldset>
         </g:form>
+        <br />
         <div id="searchresults">
             <table>
                 <thead>
                 <tr>
 
                     <g:sortableColumn property="term" title="${message(code: 'term.term.label', default: 'Term')}"/>
+
+                    <g:sortableColumn property="length" title="${message(code: 'term.length.label', default: 'Length')}"/>
 
                     <g:sortableColumn property="description"
                                       title="${message(code: 'term.description.label', default: 'Description')}"/>
@@ -123,6 +159,8 @@
                         <td><g:link controller="term" action="show"
                                     id="${termInstance.id}">${fieldValue(bean: termInstance, field: "term")}</g:link></td>
 
+                        <td>${fieldValue(bean: termInstance, field: "length")}</td>
+
                         <td>${fieldValue(bean: termInstance, field: "description")}</td>
 
                         <td>${fieldValue(bean: termInstance, field: "token")}</td>
@@ -136,7 +174,7 @@
                 <g:paginate total="${count ?: 0}" params="${params}"/>
             </div>
         </div>
-    </div>
+    %{--</div>--}%
 </div>
 </body>
 </html>

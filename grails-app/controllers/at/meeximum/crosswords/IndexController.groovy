@@ -1,5 +1,6 @@
 package at.meeximum.crosswords
 
+
 class IndexController {
 
     def index() {
@@ -7,14 +8,14 @@ class IndexController {
             redirect(action: 'logon')
             return
         }
-        println("search called")
-        if (!params.searchTextField) return
+        if (!params.searchTextField && !params.searchToken && !params.lengthField) return
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         def termList = Term.createCriteria().list(params) {
-            String searchText = params.searchTextField
-            println(searchText)
-            ilike("term", searchText.replaceAll("#", "_").replaceAll("\\+", "%"))
+            if(params.searchTextField) ilike("term", params.searchTextField.replaceAll("#", "_").replaceAll("\\+", "%"))
+            if(params.searchToken) eq("token", Token.findById(params.searchToken))
+            if(params.lengthField) eq("length", Integer.valueOf(params.lengthField))
         }
+
         [searchresults: termList, count: termList.totalCount]
         //render(template:'grid', model:[searchresults:termList, count:termList.totalCount])
     }

@@ -37,6 +37,9 @@ class TermController {
             return
         }
 
+        termInstance.term = termInstance.term.toUpperCase()
+        termInstance.length = termInstance.term.length()
+
         if (termInstance.hasErrors()) {
             respond termInstance.errors, view: 'create'
             return
@@ -63,6 +66,9 @@ class TermController {
             notFound()
             return
         }
+
+        termInstance.term = termInstance.term.toUpperCase()
+        termInstance.length = termInstance.term.length()
 
         if (termInstance.hasErrors()) {
             respond termInstance.errors, view: 'edit'
