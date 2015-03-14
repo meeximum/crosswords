@@ -43,7 +43,7 @@ environments {
         dataSource {
             dbCreate = "update"
 //            url = "jdbc:h2:prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
-            url = "jdbc:mysql://localhost/crosswords?useUnicode=yes&characterEncoding=UTF-8"
+            url = "jdbc:mysql://5.9.107.14/crosswords?useUnicode=yes&characterEncoding=UTF-8"
             username = "crosswords"
             password = "crosswords"
             properties {
